@@ -96,3 +96,6 @@ jobs:
           name: playwright-report
           path: playwright-report/
           retention-days: 5
+
+          env: 
+            APP_ENV: ci
