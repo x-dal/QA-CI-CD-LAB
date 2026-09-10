@@ -72,6 +72,7 @@ jobs:
 
     env:
       APP_ENV: ci
+      TEST_API_KEY: ${{ secrets.TEST_API_KEY }}
 
     steps:
       - name: Checkout code
@@ -85,6 +86,14 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
+
+      - name: Verify secret existes
+        run: |
+          if [ -z "${{ secrets.TEST_API_KEY }}" ]; then
+            echo "TEST_API_KEY secret is not set. Please set it in the repository settings."
+            exit 1
+          fi
+          echo "TEST_API_KEY secret is set."
 
       - name: Install Playwright browsers
         run: npx playwright install --with-deps
