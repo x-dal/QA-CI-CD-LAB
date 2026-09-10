@@ -4,5 +4,7 @@ export default defineConfig({
     test: {
         environment: "jsdom",
         globals: true,
+        include: ["tests/unit/**/*.test.ts", "tests/api/**/*.test.ts"],
+        exclude: ["e2e/**", "tests/e2e/**", "node_modules/**"],
     }
 })
