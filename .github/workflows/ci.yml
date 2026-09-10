@@ -8,15 +8,15 @@ on:
     branches:
       - main
   workflow_dispatch:
-  inputs:
-    environment:
-      description: "Target environment"
-      required: true
-      default: "staging"
-      type: choice
-      options:
-        - staging
-        - production
+    inputs:
+      environment:
+        description: "Target environment"
+        required: true
+        default: "staging"
+        type: choice
+        options:
+          - staging
+          - production
 jobs:
   lint:
     runs-on: ubuntu-latest
