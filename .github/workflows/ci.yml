@@ -8,6 +8,15 @@ on:
     branches:
       - main
   workflow_dispatch:
+  inputs:
+    environment:
+      description: "Target environment"
+      required: true
+      default: "staging"
+      type: choice
+      options:
+        - staging
+        - production
 jobs:
   lint:
     runs-on: ubuntu-latest
@@ -71,7 +80,7 @@ jobs:
     needs: [lint, unit-api-tests, build]
 
     env:
-      APP_ENV: ci
+      APP_ENV: ${{ github.event.inputs.environment || 'ci' }}
       TEST_API_KEY: ${{ secrets.TEST_API_KEY }}
 
     steps:
@@ -97,6 +106,9 @@ jobs:
 
       - name: Install Playwright browsers
         run: npx playwright install --with-deps
+
+      - name: Show environment variables
+        run:  echo "Running pipeline for $APP_ENV environment"
 
       - name: Run Playwright E2E tests
         run: npm run e2e
