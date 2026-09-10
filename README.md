@@ -1,36 +1,39 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# QA CI/CD lab
 
-## Getting Started
+[![CI](https://github.com/x-dal/QA-CI-CD-LAB/actions/workflows/ci.yml/badge.svg)](https://github.com/x-dal/QA-CI-CD-LAB/actions/workflows/ci.yml)
 
-First, run the development server:
+## What this project demonstrates
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+This project shows a basic QA-focused CI pipeline.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The pipeline runs automatically on every push and pull request to `main`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## CI pipeline steps
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. Checkout code
+2. Setup Node.js
+3. Install dependencies using `npm ci`
+4. Run lint checks
+5. Run unit tests
+6. Run API tests
+7. Run production build
+8. Run Playwright E2E tests
+9. Upload Playwright HTML report as artifact
 
-## Learn More
+## Test types
 
-To learn more about Next.js, take a look at the following resources:
+### Unit tests
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Unit tests are written with Vitest.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### API tests
 
-## Deploy on Vercel
+API tests validate the `/api/health` endpoint.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### E2E tests
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+End-to-end tests are written with Playwright and run against the local Next.js app.
+
+## Why this matters
+
+This project demonstrates how automated quality gates can help detect issues before code is merged or deployed.
