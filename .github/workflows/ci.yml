@@ -43,4 +43,8 @@ jobs:
           name: playwright-report
           path: playwright-report/
           retention-days: 5
+
+
+      - name: Run production build
+        run: npm run build
        
