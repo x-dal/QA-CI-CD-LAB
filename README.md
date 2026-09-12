@@ -37,3 +37,24 @@ End-to-end tests are written with Playwright and run against the local Next.js a
 ## Why this matters
 
 This project demonstrates how automated quality gates can help detect issues before code is merged or deployed.
+
+## Git workflow used in this project
+
+This project follows a simple pull request workflow:
+
+1. Create a new branch from `main`
+2. Make changes on the branch
+3. Push the branch to GitHub
+4. Open a pull request into `main`
+5. GitHub Actions runs CI checks
+6. Merge only when checks pass
+7. Firebase App Hosting deploys from `main`
+
+## Common commands
+
+Create a new branch:
+
+```bash
+git checkout main
+git pull origin main
+git checkout -b my-feature-branch
