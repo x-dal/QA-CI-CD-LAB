@@ -13,7 +13,8 @@
     "format": "prettier . --write",
     "format:check": "prettier . --check",
     "smoke": "playwright test e2e/home.spec.ts",
-    "quality": "npm run format:check && npm run lint && npm test && npm run build && npm run e2e"
+    "quality": "npm run format:check && npm run lint && npm test && npm run build && npm run e2e",
+    "version:show": "node -p \"require('./package.json').version\""
   },
   "dependencies": {
     "next": "16.3.4",
