@@ -198,3 +198,4 @@ This project includes a Dockerfile to verify that the app can be built inside a 
 
 ```bash
 docker build -t qa-ci-lab .
+```
