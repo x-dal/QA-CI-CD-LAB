@@ -190,4 +190,12 @@ During this project, I practiced and learned:
 - Add rollback documentation
 - Add monitoring/logging notes
 
-this is test
+## Docker
+
+This project includes a Dockerfile to verify that the app can be built inside a clean container environment.
+
+### Build Docker image locally
+
+```bash
+docker build -t qa-ci-lab .
+```
