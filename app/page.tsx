@@ -28,10 +28,12 @@ export default function Home() {
         <section className="mt-6 rounded-2xl border border-slate-700 bg-slate-900 p-6 sm:p-8">
           <h2 className="text-2xl font-semibold">2. Create the workflow</h2>
           <p className="mt-3 text-slate-300">
-            Create <code className="text-cyan-300">.github/workflows/ci.yml</code>{" "}
-            and add this starter workflow:
+            Create{" "}
+            <code className="text-cyan-300">.github/workflows/ci.yml</code> and
+            add this starter workflow:
           </p>
-          <pre className="mt-5 overflow-x-auto rounded-lg bg-slate-950 p-5 text-sm leading-6 text-cyan-100"><code>{`name: CI
+          <pre className="mt-5 overflow-x-auto rounded-lg bg-slate-950 p-5 text-sm leading-6 text-cyan-100">
+            <code>{`name: CI
 
 on: [push, pull_request]
 
@@ -47,7 +49,8 @@ jobs:
       - run: npm ci
       - run: npm run lint
       - run: npm test
-      - run: npm run build`}</code></pre>
+      - run: npm run build`}</code>
+          </pre>
         </section>
 
         <section className="mt-6 rounded-2xl border border-slate-700 bg-slate-900 p-6 sm:p-8">
