@@ -4,3 +4,12 @@ node_modules
 playwright-report
 test-results
 coverage
+out
+
+.env
+.env.*
+*.pem
+*.key
+*.cert
+firebase-debug.log
+firebase-debug.*.log
