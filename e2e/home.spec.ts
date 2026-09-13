@@ -5,6 +5,3 @@ test("home page loads", async ({ page }) => {
   await page.goto("/");
   await expect(page).toHaveTitle("Create Next App");
 });
-
-
-

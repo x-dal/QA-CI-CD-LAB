@@ -34,6 +34,9 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Run format check
+        run: npm run format:check
+
       - name: Run lint
         run: npm run lint
 
@@ -42,7 +45,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [22,24]
+        node-version: [22, 24]
 
     steps:
       - name: Checkout code
@@ -84,8 +87,6 @@ jobs:
     needs: [lint, unit-api-tests, build]
 
     env:
-      APP_ENV: ${{ github.event.inputs.environment || 'ci' }}
-      TEST_API_KEY: ${{ secrets.TEST_API_KEY }}
       APP_ENV: ${{ github.event.inputs.environment || 'staging' }}
       STAGING_URL: ${{ secrets.STAGING_URL }}
 
@@ -114,7 +115,7 @@ jobs:
         run: npx playwright install --with-deps
 
       - name: Show environment variables
-        run:  echo "Running pipeline for $APP_ENV environment"
+        run: echo "Running pipeline for $APP_ENV environment"
 
       - name: Run Playwright E2E tests
         run: npm run e2e
@@ -134,11 +135,11 @@ jobs:
     if: github.event_name == 'workflow_dispatch'
 
     steps:
-       - name: Show deployment target
-         run: echo "Deploying to ${{ github.event.inputs.environment }}"
+      - name: Show deployment target
+        run: echo "Deploying to ${{ github.event.inputs.environment }}"
 
-       - name: Simulate deployment
-         run: |
-            echo "Starting deployment..."
-            echo "Running smoke checks..."
-            echo "Deployment simulation completed successfully."        
+      - name: Simulate deployment
+        run: |
+          echo "Starting deployment..."
+          echo "Running smoke checks..."
+          echo "Deployment simulation completed successfully."

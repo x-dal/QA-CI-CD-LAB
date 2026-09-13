@@ -1,5 +1,4 @@
-import {test, expect} from '@playwright/test';
-
+import { test, expect } from "@playwright/test";
 
 test("live Firebase app is reachable", async ({ page }) => {
   const liveUrl = process.env.STAGING_URL;
