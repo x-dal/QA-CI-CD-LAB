@@ -158,7 +158,6 @@ During this project, I practiced and learned:
 - How CI checks and deployment can run as separate processes
 - Why production deployments should happen only after quality checks pass
 
-
 ## Roadmap
 
 ### Completed
