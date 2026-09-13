@@ -199,3 +199,39 @@ This project includes a Dockerfile to verify that the app can be built inside a 
 ```bash
 docker build -t qa-ci-lab .
 ```
+
+Initial CI/CD learning release.
+
+Includes:
+
+- GitHub Actions CI
+- Prettier format check
+- ESLint
+- Vitest unit/API tests
+- Playwright E2E tests
+- Docker build check
+- Firebase App Hosting deployment
+
+## Releases
+
+This project uses Git tags and GitHub Releases to mark stable versions.
+
+### Current release
+
+- `v0.1.0` - Initial CI/CD Lab
+
+### Release process
+
+1. Make sure `main` is updated
+2. Run local quality checks
+3. Create a version tag
+4. Push the tag to GitHub
+5. Create a GitHub Release from the tag
+
+```bash
+git checkout main
+git pull origin main
+npm run quality
+git tag v0.1.0
+git push origin v0.1.0
+```
