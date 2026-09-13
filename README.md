@@ -212,7 +212,6 @@ Includes:
 - Docker build check
 - Firebase App Hosting deployment
 
-
 ## Releases
 
 This project uses Git tags and GitHub Releases to mark stable versions.
@@ -235,3 +234,4 @@ git pull origin main
 npm run quality
 git tag v0.1.0
 git push origin v0.1.0
+```
