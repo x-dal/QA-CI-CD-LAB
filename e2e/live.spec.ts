@@ -1,7 +1,13 @@
 import {test, expect} from '@playwright/test';
 
-test("Live firebase app is reachable", async ({page}) => {
 
-    await page.goto("https://my-web-app--qa-ci-lab-test.us-east4.hosted.app/");
-    await expect(page).toHaveTitle("Create Next App");
-    })
+test("live Firebase app is reachable", async ({ page }) => {
+  const liveUrl = process.env.STAGING_URL;
+
+  if (!liveUrl) {
+    throw new Error("STAGING_URL is not configured");
+  }
+
+  await page.goto(liveUrl);
+  await expect(page).toHaveTitle("Create Next App");
+});

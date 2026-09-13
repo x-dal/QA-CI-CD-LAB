@@ -86,6 +86,8 @@ jobs:
     env:
       APP_ENV: ${{ github.event.inputs.environment || 'ci' }}
       TEST_API_KEY: ${{ secrets.TEST_API_KEY }}
+      APP_ENV: ${{ github.event.inputs.environment || 'staging' }}
+      STAGING_URL: ${{ secrets.STAGING_URL }}
 
     steps:
       - name: Checkout code
