@@ -84,7 +84,7 @@ jobs:
 
   e2e-tests:
     runs-on: ubuntu-latest
-    needs: [lint, unit-api-tests, build]
+    needs: [lint, unit-api-tests, build, docker-build]
 
     env:
       APP_ENV: ${{ github.event.inputs.environment || 'staging' }}
@@ -154,3 +154,14 @@ jobs:
           echo "Starting deployment..."
           echo "Running smoke checks..."
           echo "Deployment simulation completed successfully."
+
+  docker-build:
+    runs-on: ubuntu-latest
+    needs: [lint, unit-api-tests, build]
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v5
+
+      - name: Build Docker image
+        run: docker build -t qa-ci-lab .
