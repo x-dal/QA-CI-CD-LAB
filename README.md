@@ -235,6 +235,7 @@ npm run quality
 git tag v0.1.0
 git push origin v0.1.0
 ```
+
 ## Rollback strategy
 
 A rollback means returning the application to a previous stable version if a new deployment has a problem.
@@ -258,3 +259,4 @@ git revert <commit-sha>
 git push origin main
 
 
+```
