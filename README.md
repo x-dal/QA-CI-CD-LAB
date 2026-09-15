@@ -235,3 +235,26 @@ npm run quality
 git tag v0.1.0
 git push origin v0.1.0
 ```
+## Rollback strategy
+
+A rollback means returning the application to a previous stable version if a new deployment has a problem.
+
+### Current rollback options
+
+Because this project uses Firebase App Hosting and GitHub, rollback can be handled by:
+
+1. Reverting the problematic commit
+2. Opening a pull request with the revert
+3. Waiting for CI to pass
+4. Merging to `main`
+5. Allowing Firebase App Hosting to deploy the fixed version
+
+### Git revert example
+
+```bash
+git checkout main
+git pull origin main
+git revert <commit-sha>
+git push origin main
+
+
